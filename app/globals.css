@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap");
+
+/* ============================================================
+   CSS Custom Properties — mirrors lib/config.ts theme
+   ============================================================ */
+:root {
+  --fc-primary: #e8634a;
+  --fc-primary-light: #fff0ed;
+  --fc-secondary: #1b2845;
+  --fc-accent: #f5a623;
+  --fc-success: #34c759;
+  --fc-bg: #fafaf8;
+  --fc-card: #ffffff;
+  --fc-text: #1b2845;
+  --fc-text-muted: #7a8599;
+  --fc-border: #e8ebf0;
+
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --nav-height: 64px;
+  --max-width: 480px;
+}
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--fc-text);
+  background: var(--fc-bg);
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbars globally (mobile-app feel) */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Number input spinners */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============================================================
+   App Shell
+   ============================================================ */
+.app-shell {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  min-height: 100dvh;
+}
+
+.page-content {
+  padding-bottom: calc(var(--nav-height) + 20px);
+  min-height: 100dvh;
+}
+
+/* ============================================================
+   Bottom Navigation
+   ============================================================ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--max-width);
+  height: var(--nav-height);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--fc-border);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 6px 8px 10px;
+  z-index: 100;
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  padding: 4px 12px;
+  color: var(--fc-text-muted);
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-tab.active {
+  color: var(--fc-primary);
+}
+
+.nav-tab.active::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  width: 24px;
+  height: 3px;
+  background: var(--fc-primary);
+  border-radius: 2px;
+}
+
+.nav-tab-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.nav-tab.active .nav-tab-label {
+  font-weight: 700;
+}
+
+/* ============================================================
+   Swipe Carousel
+   ============================================================ */
+.swipe-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 12px;
+  padding: 0 20px 16px;
+}
+
+.swipe-item {
+  flex: 0 0 82%;
+  scroll-snap-align: center;
+}
+
+.swipe-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding-bottom: 8px;
+}
+
+.swipe-dot {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--fc-border);
+  transition: all 0.3s ease;
+}
+
+.swipe-dot.active {
+  width: 20px;
+  background: var(--fc-primary);
+}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.card {
+  background: var(--fc-card);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(27, 40, 69, 0.06);
+  border: 1px solid var(--fc-border);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* ============================================================
+   Utility
+   ============================================================ */
+.section-padding {
+  padding: 0 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--fc-secondary);
+}
+
+.section-link {
+  background: none;
+  border: none;
+  color: var(--fc-primary);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: var(--fc-secondary);
+  margin-bottom: 4px;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: var(--fc-text-muted);
+  margin-bottom: 20px;
+}
+
+/* Tag pills */
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fc-text-muted);
+  background: var(--fc-bg);
+  padding: 3px 10px;
+  border-radius: 10px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Primary button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--fc-primary);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Ghost button */
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 24px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+/* ============================================================
+   Desktop breakpoint — top nav / wider cards
+   ============================================================ */
+@media (min-width: 600px) {
+  :root {
+    --max-width: 520px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --max-width: 480px;
+  }
+
+  /* On very wide screens, center the phone-sized layout
+     with a subtle device frame effect */
+  .app-shell {
+    margin-top: 20px;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 8px 60px rgba(0, 0, 0, 0.12);
+    min-height: calc(100dvh - 40px);
+  }
+}
