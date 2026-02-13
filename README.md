@@ -5,7 +5,7 @@ Mobile-first community website built with Next.js + Airtable.
 
 ## One-Click Deploy
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farrendy%2Ffcb-website&env=AIRTABLE_API_KEY,AIRTABLE_BASE_ID&envDescription=Airtable%20credentials%20needed%20to%20connect%20your%20content.%20See%20README%20for%20setup%20instructions.&envLink=https%3A%2F%2Fgithub.com%2Farrendy%2Ffcb-website%23airtable-setup&project-name=fcb-website&repository-name=fcb-website)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farrendy%2Ffcbk-site-1&env=AIRTABLE_API_KEY,AIRTABLE_BASE_ID&envDescription=Airtable%20credentials%20needed%20to%20connect%20your%20content.%20See%20README%20for%20setup%20instructions.&envLink=https%3A%2F%2Fgithub.com%2Farrendy%2Ffcb-website%23airtable-setup&project-name=fcbk-site-1&repository-name=fcbk-site-1)
 
 Click the button above → it will:
 1. Clone the repo to your GitHub
